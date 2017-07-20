@@ -22,25 +22,25 @@ import time
 # utils
 
 def to_sparse_matrix(df):
-	'''
-	Converts a pandas DataFrame to a SciPy
-	sparse matrix.
-	'''
-	return csr_matrix(df.values)
+    '''
+    Converts a pandas DataFrame to a SciPy
+    sparse matrix.
+    '''
+    return csr_matrix(df.values)
 
 def text_to_sparse_matrix(raw_docs):
-	'''
-	Returns a sparse bag-of-words representation
-	of text documents.
-	'''
-	data = CountVectorizer.fit(raw_docs).transform(raw_docs)
-	return data
+    '''
+    Returns a sparse bag-of-words representation
+    of text documents.
+    '''
+    data = CountVectorizer.fit(raw_docs).transform(raw_docs)
+    return data
 
 # K-Means algorithm
 
 def kmeans_multiple_runs(data, k, maxiter, num_runs, 
-	seed_list=None, verbose=False):
-	   '''
+    seed_list=None, verbose=False):
+    '''
     This function runs k-means on given data multiple times 
     and returns the best clustering, as
     measured by heterogeneity.
@@ -49,7 +49,7 @@ def kmeans_multiple_runs(data, k, maxiter, num_runs,
     maxiter: maximum number of iterations to run.
 
     '''
-	# assert sparse.isspmatrix_csr(data)
+    # assert sparse.isspmatrix_csr(data)
     heterogeneity = {}
     
     min_heterogeneity_achieved = float('inf')
@@ -93,11 +93,11 @@ def kmeans_multiple_runs(data, k, maxiter, num_runs,
 
 
 def kmeans(data, k, initial_centroids, maxiter, 
-	record_heterogeneity=None, verbose=False):
+    record_heterogeneity=None, verbose=False):
     '''
     This function runs k-means on given data and initial set of centroids.
        
-	data: sparse scipy matrix.
+    data: sparse scipy matrix.
     maxiter: maximum number of iterations to run.
     record_heterogeneity: (optional) a list, to store the history of heterogeneity as function of iterations
                              if None, do not store the history.
@@ -141,8 +141,8 @@ def kmeans(data, k, initial_centroids, maxiter,
 
 def smart_initialize(data, k, seed=None):
     '''
-	data: a csr_sparse matrix
-	k: number of clusters
+    data: a csr_sparse matrix
+    k: number of clusters
 
     Use k-means++ to initialize a good set of centroids
     '''
@@ -172,8 +172,8 @@ def smart_initialize(data, k, seed=None):
 
 def get_initial_centroids(data, k, seed=None):
     '''
-	data: a csr_sparse matrix
-	k: number of clusters
+    data: a csr_sparse matrix
+    k: number of clusters
 
     Randomly chooses k data points as initial centroids.
 
@@ -253,14 +253,14 @@ def plot_k_vs_heterogeneity(k_values, heterogeneity_values):
     plt.show()
 
 def visualize_document_clusters(raw_docs, tf_idf, centroids, 
-	cluster_assignment, k, map_index_to_word, display_content=True):
+    cluster_assignment, k, map_index_to_word, display_content=True):
     '''
-	Visualization function in case K-Means is used to cluster textual documents.
-	Good clusters should exhibit similarity in topical content.
+    Visualization function in case K-Means is used to cluster textual documents.
+    Good clusters should exhibit similarity in topical content.
 
     raw_docs: original dataframe/SFrame 
-    	with a 'text' column for raw documents
-    	and a 'name' column for document name/ID
+        with a 'text' column for raw documents
+        and a 'name' column for document name/ID
     tf_idf: tf-idf values, sparse matrix format
     map_index_to_word: dataframe/SFrame specifying the mapping betweeen words and column indices
     display_content: if True, display 8 nearest neighbors of each centroid
