@@ -1,6 +1,10 @@
 '''
 Full-batch learning for a three-layer perceptron,
-i.e. a three-layer fully-connected feedforward neural net.
+i.e. a three-layer fully-connected feedforward neural net,
+for binary classification.
+
+TBC: replace sigmoid activation with softmax and provide
+    functinonality for arbitrary multi-class classification.
 
 email: dat.nguyen at cantab.net
 '''
