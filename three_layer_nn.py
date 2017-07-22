@@ -4,7 +4,7 @@ i.e. a three-layer fully-connected feedforward neural net,
 for binary classification.
 
 TBC: replace sigmoid activation with softmax and provide
-    functinonality for arbitrary multi-class classification.
+    functionality for arbitrary multi-class classification.
 
 email: dat.nguyen at cantab.net
 '''
