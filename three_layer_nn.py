@@ -50,7 +50,7 @@ class ThreeLayerPerceptron(object):
     
     def _feedforward(self, X):
         '''
-        Feedforward algorithm.
+        Forward propagation.
 
         Returns the values of the hidden units (l1)
         and the values of the output unit(s) (l2).
