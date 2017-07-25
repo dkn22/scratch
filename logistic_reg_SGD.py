@@ -33,8 +33,6 @@ class LogisticRegSGD(object):
 	def _compute_gradient(self, errors, feature, weights): 
     
 	    gradient = np.dot(feature, errors)
-	    if self.regularize:
-			gradient[1:] -= 2*self.l2_penalty*weights[1:]
 
 	    return gradient
 
@@ -72,6 +70,8 @@ class LogisticRegSGD(object):
 	        for j in range(len(weights)): # loop over each coefficient
 	            
 	            derivative = self._compute_gradient(errors, X[i:i+batch_size, j], weights)
+	            if self.regularize and j>0:
+					derivative -= 2*self.l2_penalty*weights[j]
 	            
 	            # the **normalization constant** (1./batch_size)
 	            weights[j] += step_size * derivative * 1./batch_size
