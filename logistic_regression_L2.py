@@ -53,9 +53,9 @@ class LogisticRegression(object):
 			if self.regularize:
 				gradient[1:] -= 2*self.l2_penalty*weights[1:]
 
-				weights = weights[0] + step_size*gradient
-			else:
-				weights = weights + step_size*gradient
+			# 	weights = weights[0] + step_size*gradient
+			# else:
+			weights = weights + step_size*gradient
 			if itr <= 1 or (itr <= 100 and itr % 10 == 0) or (itr <= 1000 and itr % 100 == 0) \
         	or (itr <= 10000 and itr % 1000 == 0) or itr % 10000 == 0:
 
