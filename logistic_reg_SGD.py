@@ -107,11 +107,11 @@ class LogisticRegSGD(object):
 		Classifies an observation as "positive" if
 		P(positive class) > 0.5; otherwise "negative".
     	'''
-    	    if weights is None:
-	        weights = self.weights
+	    if weights is None:
+        weights = self.weights
 
-    	    score = X_test.dot(weights)
+	    score = X_test.dot(weights)
 
-    	    predictions = (score > 0)*1
+	    predictions = (score > 0)*1
 
-    	    return predictions
+	    return predictions
