@@ -108,7 +108,7 @@ class LogisticRegSGD(object):
 		P(positive class) > 0.5; otherwise "negative".
     	'''
     	    if weights is None:
-			weights = self.weights
+	        weights = self.weights
 
     	    score = X_test.dot(weights)
 
