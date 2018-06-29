@@ -177,4 +177,4 @@ class AVLTree(BinarySearchTree):
                 node.parent.balance_factor += 1
 
             if node.parent.balance_factor != 0:
-                self.update_balance(node.parent)
+                self.update_balance_del(node.parent)
