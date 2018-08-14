@@ -172,9 +172,10 @@ def shortest_path(graph, source_node):
 
     while not pq.is_empty():
         current_node = pq.del_min()
-        for next_node in current_node.get_connections():
+        for next_key in current_node.get_connections():
+            next_node = graph.get_vertex(next_key)
             new_dist = current_node.distance + \
-                current_node.get_weight(next_node)
+                current_node.get_weight(next_key)
 
             if new_dist < next_node.distance:
                 next_node.distance = new_dist
